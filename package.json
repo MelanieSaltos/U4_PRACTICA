@@ -8,6 +8,11 @@
     "start": "node src/index.js",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelanieSaltos/U4_PRACTICA.git"
+    
+  },
   "keywords": [],
   "author": "Melanie Saltos Vivero",
   "license": "ISC",
