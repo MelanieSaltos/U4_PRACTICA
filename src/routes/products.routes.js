@@ -1,19 +1,23 @@
-import {Router} from "express";
+import { Router } from "express";
+import {
+  getProducts,
+  createProduct,
+  updateProductById,
+  deleteProductById,
+  getProductById,
+} from "../controllers/products.controller.js";
+import { verifyToken, isModerator, isAdmin } from "../middlewares/authJwt.js";
 
-const router=Router()
+const router = Router();
 
-import *as productstCtrl  from "../controllers/products.controller";
+router.get("/", getProducts);
 
+router.get("/:productId", getProductById);
 
-router.post('/', productstCtrl.createProduct)
+router.post("/", [verifyToken, isModerator], createProduct);
 
-router.get('/', productstCtrl.getProducts)
+router.put("/:productId", [verifyToken, isModerator], updateProductById);
 
-router.get('/:productId', productstCtrl.getProductById)
-
-router.put('/:productId', productstCtrl.updateProductById)
-
-router.delete('/:productId', productstCtrl.deleteProductById)
-
+router.delete("/:productId", [verifyToken, isAdmin], deleteProductById);
 
 export default router;

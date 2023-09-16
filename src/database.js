@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb+srv://melanie:bartolo2003@cluster0.hszw1vp.mongodb.net/?retryWrites=true&w=majority")
-    .then(db =>console.log('DB is connected'))
-    .catch(error =>console.log(error))  
-    
+import { MONGODB_URI } from "./config.js";
+
+try {
+  const db = await mongoose.connect(MONGODB_URI);
+  console.log("Database is connected to", db.connection.name);
+} catch (error) {
+  console.error(error.message);
+}
