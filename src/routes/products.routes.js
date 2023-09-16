@@ -1,6 +1,9 @@
 import {Router} from "express";
-import *as productstCtrl  from "../controllers/products.controller";
+
 const router=Router()
+
+import *as productstCtrl  from "../controllers/products.controller";
+
 
 router.post('/', productstCtrl.createProduct)
 
