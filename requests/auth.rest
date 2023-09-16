@@ -5,6 +5,6 @@ POST {{api}}/signin
 Content-Type: application/json
 
 {
-  "email": "fazt@localhost.local",
+  "email": "melanie@localhost.local",
   "password": "admin"
 }
